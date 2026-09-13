@@ -1,0 +1,52 @@
+# OICOS CODE — 你的本地 Agent 操作系统
+#
+# 模型配置 (OpenAI 兼容格式)
+# 支持: DeepSeek / Ollama / vLLM / OpenAI / 任何兼容 API
+
+provider: "deepseek"           # 可选: openai, deepseek, ollama, vllm, custom
+
+deepseek:
+  base_url: "https://api.deepseek.com"
+  api_key: "${DEEPSEEK_API_KEY}"
+  model: "deepseek-v4-pro"
+  max_tokens: 8192
+  temperature: 0.3
+
+ollama:
+  base_url: "http://localhost:11434/v1"
+  api_key: ""
+  model: "qwen2.5:14b"
+  max_tokens: 4096
+  temperature: 0.3
+
+# 系统配置
+system:
+  max_turns: 50               # 单次对话最大轮数
+  max_tool_calls_per_turn: 8  # 每轮最大工具调用数
+  max_result_size_chars: 50000 # 工具结果大于此值→磁盘持久化
+  context_compact_threshold: 80000  # token 数超过此值→自动压缩
+  session_persist: true        # 是否持久化会话
+
+# 工具配置
+tools:
+  read:
+    enabled: true
+    max_file_size: 1048576     # 1MB
+  search:
+    enabled: true
+  edit:
+    enabled: true
+    require_permission: true
+  bash:
+    enabled: true
+    require_permission: true
+    timeout: 30000             # 30s
+
+# 风控规则
+permissions:
+  mode: "default"              # plan / default / acceptEdits / bypassPermissions
+  always_allow: []
+  always_deny: []
+  always_ask:
+    - "bash:rm -rf /*"
+    - "edit:/etc/passwd"

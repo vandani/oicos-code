@@ -1,0 +1,14 @@
+{
+  "name": "oicos-code",
+  "version": "0.5.0",
+  "description": "OICOS CODE — 基于 OICOS 引擎的本地 Agent 操作系统",
+  "type": "module",
+  "main": "src/cli/index.js",
+  "scripts": {
+    "start": "node src/cli/index.js",
+    "test": "node src/test/run.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.2.0"
+  }
+}

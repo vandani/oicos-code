@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+*.log
+sessions/
+.hermes/
+.DS_Store
+dist/
+*.tar.gz

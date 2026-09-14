@@ -254,7 +254,7 @@ npm test      # 85 个用例必须全绿
 
 ## 📄 License
 
-[MIT](LICENSE) © van li · 开元 AI / OpenOrigin
+[MIT](LICENSE) © van li · EARTH AI / OpenOrigin
 
 <div align="center">
 

@@ -7,3 +7,6 @@ sessions/
 .DS_Store
 dist/
 *.tar.gz
+
+# 本地备份
+*.bak-*
